@@ -1,0 +1,31 @@
+# curl -u admin:password -X GET http://localhost:8080/pet -H "Accept: application/json"
+GET http://localhost:8080/
+Authorization: Basic admin password
+Accept: application/json
+
+<> 2025-01-01T222345.200.json
+
+###
+GET http://localhost:8081/
+
+<> 2025-01-15T174006.200.txt
+
+###
+GET http://localhost:8081/actuator/prometheus
+
+<> 2025-01-15T174032.200.txt
+
+###
+POST http://localhost:8081/hello
+Content-Type: application/json
+
+{
+  "firstName": "Ivan",
+  "lastName": "Ivanov"
+}
+
+###
+
+GET http://localhost:8081/actuator/temporalworkerinfo
+
+<> 2025-01-15T185326.200.json

@@ -1,0 +1,41 @@
+server:
+  port: 8081
+spring:
+  temporal:
+    namespace: default
+    connection:
+      target: 127.0.0.1:7233
+    workers:
+      - task-queue: HelloSampleTaskQueue
+        capacity:
+          max-concurrent-workflow-task-pollers: 200
+          max-concurrent-activity-task-pollers: 200
+        rate-limits:
+          max-worker-activities-per-second: 200
+          max-task-queue-activities-per-second: 200
+        virtual-threads:
+          using-virtual-threads: true
+    workflow-cache:
+      max-instances: 200
+      max-threads: 200
+      using-virtual-workflow-threads: true
+    workersAutoDiscovery:
+      packages: com.krupoderov.fierypontianak\
+  threads:
+    virtual:
+      enabled: true
+
+
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+samples:
+  data:
+    language: english
